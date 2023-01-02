@@ -1,3 +1,4 @@
+topk_expand=$1
 python train.py --triple_name marco \
                 --doc_id full \
                 --model_name SpaDE_cotraining \
@@ -27,5 +28,5 @@ python train.py --triple_name marco \
                 --expand_method2 topk \
                 --sparsifying_start_iter 32000 \
                 --sparsifying_gradual True \
-                --num_expand2 2 \
+                --num_expand2 $topk_expand \
                 --topk_start_iter2 32000
