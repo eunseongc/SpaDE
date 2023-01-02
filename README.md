@@ -1,6 +1,6 @@
 # SpaDE (CIKM'22)
 
-Welcome! This is a repository for our paper ["SpaDE: Improving Sparse Representations using a Dual Document Encoder for First-stage Retrieval"](https://arxiv.org/abs/2209.05917) in CIKM'22.<br>
+Welcome🙌! This is a repository for our paper ["SpaDE: Improving Sparse Representations using a Dual Document Encoder for First-stage Retrieval"](https://arxiv.org/abs/2209.05917) in CIKM'22.<br>
 
 Build your environment with the following CLI before reproduction.<br>
 We have confirmed that the results are reproduced successfully in Python version 3.7.15 and PyTorch version 1.12.1.<br>
