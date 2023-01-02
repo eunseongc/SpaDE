@@ -32,10 +32,13 @@ source scripts/run_train.sh 2
 
 ## Indexing
 
+To be updated
+
+
 
 ## Evaluation
 
-
+To be updated
 
 
 
