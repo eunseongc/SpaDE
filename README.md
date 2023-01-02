@@ -2,7 +2,7 @@
 
 Welcome! This is a repository for our paper ["SpaDE: Improving Sparse Representations using a Dual Document Encoder for First-stage Retrieval"](https://arxiv.org/abs/2209.05917) in CIKM'22.<br>
 
-Build your environment with the following cmd before reproduction.<br>
+Build your environment with the following CLI before reproduction.<br>
 We have confirmed that the results are reproduced successfully in Python version 3.7.15 and PyTorch version 1.12.1.<br>
 
 # Preparing
@@ -23,8 +23,7 @@ You can download training triples(qid, pos pid, neg pid) from [here](https://dri
 Before run the script, please locate 1) `collection.tsv` (or `expanded_collection.tsv`) and 2) `marco_triples.pkl` to `data/marco-passage/`.
 
 # Training
-Run this script to train the SpaDE from the scratch.
-
+Run this script to train the SpaDE from the scratch.<br>
 (It took us about 40 hours with 1x3090Ti GPU when the top 2 tokens were expanded)
 
 ```
