@@ -14,7 +14,7 @@ pip install -r requirements.txt
 ```
 
 Please visit https://microsoft.github.io/msmarco/Datasets and https://github.com/DI4IR/SIGIR2021 (for `expanded_collection.tsv`) to download data. <br>
-Download training triples(qid, pos pid, neg pid) from [here](https://drive.google.com/file/d/1cJ72zPQik2mOHJNumCeR6aDMgiNwyfEC/view?usp=sharing)
+Download training triples(qid, pos pid, neg pid) from [here](https://drive.google.com/file/d/1cJ72zPQik2mOHJNumCeR6aDMgiNwyfEC/view?usp=sharing). <br>
 Note that this training triples is same with the one given by MS, but we rearranged it and splitted the valid dataset. <br>
 
 Before run the script, please locate 1) `collection.tsv` (or `expanded_collection.tsv`) and 2) `marco_triples.pkl` to `data/marco-passage/`. <br>
