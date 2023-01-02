@@ -42,3 +42,22 @@ To be updated
 
 
 
+## Citation
+Please cite our paper:
+```
+@inproceedings{ChoiLCKSL22,
+  author    = {Eunseong Choi and
+               Sunkyung Lee and
+               Minjin Choi and
+               Hyeseon Ko and
+               Young{-}In Song and
+               Jongwuk Lee},
+  title     = {SpaDE: Improving Sparse Representations using a Dual Document Encoder
+               for First-stage Retrieval},
+  booktitle = {Proceedings of the 31st {ACM} International Conference on Information
+               {\&} Knowledge Management, Atlanta, GA, USA, October 17-21, 2022},
+  pages     = {272--282},
+  publisher = {{ACM}},
+  year      = {2022},
+}
+```
