@@ -29,3 +29,13 @@ Run this script to train the SpaDE from the scratch.<br>
 ```
 source scripts/run_train.sh 2
 ```
+
+## Indexing
+
+
+## Evaluation
+
+
+
+
+
