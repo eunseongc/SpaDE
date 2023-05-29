@@ -286,7 +286,6 @@ class SpaDE(BaseModel):
             loss = loss * (batch_idx.shape[0]/batch_size)
             # backward
             loss.backward()
-        embed()
         # step
         self.optimizer.step()
         return loss

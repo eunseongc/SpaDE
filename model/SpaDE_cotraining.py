@@ -183,7 +183,12 @@ class SpaDE_cotraining(BaseModel):
         # ----------------------------- Train model1 -----------------------------
         optimizer.zero_grad()
         model.train()
-        batch_loader = DataBatcher(np.arange(batch_size), batch_size=self.accumulation_size, drop_remain=False, shuffle=False)
+
+        if self.train_batch_size == self.accumulation_size:
+            batch_loader = DataBatcher(np.arange(batch_size), batch_size=batch_size, drop_remain=False, shuffle=False)
+        else:
+            batch_loader = DataBatcher(np.arange(batch_size), batch_size=self.accumulation_size, drop_remain=False, shuffle=False)
+
         for i, batch_idx in enumerate(batch_loader):
             batch_query_bow_acc = batch_query_bow[batch_idx].to(self.device)
             batch_pos_indices_acc = batch_pos_indices[batch_idx]
