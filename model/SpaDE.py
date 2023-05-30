@@ -319,7 +319,7 @@ class SpaDE(BaseModel):
         for epoch in range(self.start_epoch, num_epochs + 1):
             data_start = self.num_triplet_per_epoch*(epoch-1)
             data_end = self.num_triplet_per_epoch*(epoch)
-            train_q_indices = np.array(dataset.train_q_indices[data_start:data_end]).astype(np.long)
+            train_q_indices = np.array(dataset.train_q_indices[data_start:data_end]).astype(np.int_)
             train_pos_indices = np.array(dataset.train_pos_indices[data_start:data_end])
             train_neg_indices = np.array(dataset.train_neg_indices[data_start:data_end])
             train_targets = np.array(train_targets_temp[data_start:data_end])

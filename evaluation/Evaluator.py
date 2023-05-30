@@ -18,7 +18,7 @@ class Evaluator:
             eval_id = dataset.valid_id
             qid2pid = dataset.qid2pid_valid
             doc_id = dataset.doc_id_valid
-        elif 'test' in mode:
+        elif mode == 'test':
             eval_matrix = dataset.test_matrix.toarray()
             eval_id = dataset.test_id
             qid2pid = dataset.qid2pid

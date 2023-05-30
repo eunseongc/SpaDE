@@ -270,7 +270,7 @@ class SpaDE_cotraining(BaseModel):
 
             data_start = self.sample_size*(s_i) ## 0 for 0-th sample index
             data_end = self.sample_size*(s_i+1)
-            train_q_indices = np.array(dataset.train_q_indices[data_start:data_end]).astype(np.long)
+            train_q_indices = np.array(dataset.train_q_indices[data_start:data_end]).astype(np.int_)
             train_pos_indices = np.array(dataset.train_pos_indices[data_start:data_end])
             train_neg_indices = np.array(dataset.train_neg_indices[data_start:data_end])
             
@@ -438,6 +438,11 @@ class SpaDE_cotraining(BaseModel):
             input_pids = self.dataset.doc_id
             alpha = self.alpha
             self.logger.info(f"alpha: {self.alpha} (e.g., alpha * expand + (1-alpha) * weight")
+
+            if self.expand_method2:
+                self.model2.expand_method = self.expand_method2
+            if self.num_expand2:
+                self.model2.num_expand = self.num_expand2
 
         output_expand_path = os.path.join(self.logger.log_dir, f'sparse_output_{self.cur_iter}_{len(input_pids)}_{self.num_expand}_{self.model2.expand_method}_expand.pkl')
         output_weight_path = os.path.join(self.logger.log_dir, f'sparse_output_{self.cur_iter}_{len(input_pids)}_{self.num_expand}_weight.pkl')
