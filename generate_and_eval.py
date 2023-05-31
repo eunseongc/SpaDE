@@ -13,7 +13,6 @@ parser.add_argument('--test_set', type=str, default=None, required=False)
 parser.add_argument('--num_iter', type=int, default=None, required=True)
 parser.add_argument('--doc_id', type=str, default='full', required=False)
 parser.add_argument('--gpu', type=int, default=None, required=False) 
-parser.add_argument('--expand_collection', type=str, default=None, required=False)
 parser.add_argument('--alpha', type=float, required=False, default=None, help='Value for weighted average')
 args = parser.parse_args()
 
@@ -65,6 +64,8 @@ model = MODEL_CLASS(dataset, config['Model'], device)
 model.eval()
 model.restore(logger.log_dir, args.num_iter)
 model.logger = logger
+model.alpha = args.alpha ## Only for the SpaDE_cotraining model
+
 test_score = evaluator.evaluate(model, dataset, mode='test')
 
 # show result
