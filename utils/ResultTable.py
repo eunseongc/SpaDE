@@ -72,7 +72,7 @@ class ResultTable:
 
                 if isinstance(d, (int, np.integer)):
                     d_str = self.int_formatter % d
-                elif isinstance(d, (float, np.float)):
+                elif isinstance(d, (float, np.float64)):
                     d_str = self.float_formatter % d
                 else:
                     d_str = str(d)
