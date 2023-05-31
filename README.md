@@ -38,7 +38,7 @@ To be updated
 
 ## Evaluation
 
-`generate_and_eval.py` generates sparse matrices and evaluates them.
+`generate_and_eval.py` generates sparse matrices and evaluates them.<br>
 Below is an example of usage.
 ```
 python genererate_and_eval.py --path {path_of_model_folder} --num_iter {iteration}
