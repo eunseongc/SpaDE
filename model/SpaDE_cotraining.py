@@ -444,11 +444,11 @@ class SpaDE_cotraining(BaseModel):
             if self.num_expand2:
                 self.model2.num_expand = self.num_expand2
 
-        output_expand_path = os.path.join(self.logger.log_dir, f'sparse_output_{self.cur_iter}_{len(input_pids)}_{self.num_expand}_{self.model2.expand_method}_expand.pkl')
-        output_weight_path = os.path.join(self.logger.log_dir, f'sparse_output_{self.cur_iter}_{len(input_pids)}_{self.num_expand}_weight.pkl')
+        output_expand_path = os.path.join(self.logger.log_dir, f'sparse_output_{self.cur_iter}_{len(input_pids)}_{self.model2.num_expand}_{self.model2.expand_method}_expand.pkl')
+        output_weight_path = os.path.join(self.logger.log_dir, f'sparse_output_{self.cur_iter}_{len(input_pids)}_{self.model2.num_expand}_weight.pkl')
 
         if not (os.path.exists(output_expand_path) and os.path.exists(output_weight_path)):
-            output_weight, output_expand = self.make_sparse_output(mode=mode)
+            output_weight, output_expand = self.make_sparse_output(output_expand_path, output_weight_path, mode=mode)
         else:
             with open(output_expand_path, 'rb') as f:
                 output_expand = pickle.load(f)
@@ -462,7 +462,7 @@ class SpaDE_cotraining(BaseModel):
 
         return output
 
-    def make_sparse_output(self, mode='test'):
+    def make_sparse_output(self, output_expand_path, output_weight_path, mode='test'):
         with torch.no_grad():
             self.eval()
             if mode == 'valid':
@@ -560,9 +560,9 @@ class SpaDE_cotraining(BaseModel):
             output_weight = output_weight.tocsc()
 
             print(f'{output_expand.shape} shpae of sparse matrix is created')
-            with open(os.path.join(self.logger.log_dir, f'sparse_output_{self.cur_iter}_{len(input_pids)}_{self.num_expand}_{self.model2.expand_method}_expand.pkl'), 'wb') as f:
+            with open(output_expand_path, 'wb') as f:
                 pickle.dump(output_expand, f, protocol=4)
-            with open(os.path.join(self.logger.log_dir, f'sparse_output_{self.cur_iter}_{len(input_pids)}_{self.num_expand}_weight.pkl'), 'wb') as f:
+            with open(output_weight_path, 'wb') as f:
                 pickle.dump(output_weight, f, protocol=4)
 
         return output_weight, output_expand
